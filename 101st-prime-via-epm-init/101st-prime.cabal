@@ -18,7 +18,7 @@ cabal-version:       >=1.10
 
 executable 101st-prime
   main-is:             Main.hs
-  -- other-modules:       
+  other-modules:       Primes
   -- other-extensions:    
   build-depends:       base >=4.8 && <4.9
   hs-source-dirs:      src
