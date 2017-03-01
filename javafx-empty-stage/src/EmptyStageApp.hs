@@ -1,5 +1,5 @@
 {-# LANGUAGE MagicHash #-}
-module EmptyApp where
+module EmptyStageApp where
 
 import Prelude hiding (show)
 
@@ -10,18 +10,18 @@ import JavaFX.Types
 import JavaFX.Methods
 
 -- public class Empty extends Application {
-data {-# CLASS "org.eta.EmptyApp extends javafx.application.Application" #-}
-  EmptyApp = EmptyApp (Object# EmptyApp)
+data {-# CLASS "org.eta.EmptyStageApp extends javafx.application.Application" #-}
+  EmptyStageApp = EmptyStageApp (Object# EmptyStageApp)
 
 --     @Override
 --     public void start(Stage primaryStage) throws Exception {
-start :: Stage -> Java EmptyApp ()
+start :: Stage -> Java EmptyStageApp ()
 --         primaryStage.setTitle("Empty Eta-JavaFX Stage");
 --         primaryStage.show();
 --     }
 start = (<.> (setTitle "Empty Eta-JavaFX Stage" >> show))
 
-foreign export java "start" start :: Stage -> Java EmptyApp ()
+foreign export java "start" start :: Stage -> Java EmptyStageApp ()
 
 -- What is <.> ?
 -- Execute a Java action in the Java monad of another class
