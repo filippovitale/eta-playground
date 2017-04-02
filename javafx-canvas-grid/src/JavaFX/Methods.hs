@@ -26,4 +26,4 @@ foreign import java unsafe "@new" newCanvas :: Double -> Double -> Java a Canvas
 foreign import java unsafe "getGraphicsContext2D" getGraphicsContext2D :: Java Canvas GraphicsContext
 
 -- GraphicsContext methods
-foreign import java unsafe "fillRect" fillRect :: Double -> Double -> Double -> Double -> Java GraphicsContext ()
+foreign import java unsafe "fillOval" fillOval :: Double -> Double -> Double -> Double -> Java GraphicsContext ()

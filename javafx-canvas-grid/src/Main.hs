@@ -1,7 +1,7 @@
 module Main where
 
 import JavaFX
-import EmptyCanvasApp
+import CanvasGridApp
 
 main :: IO ()
-main = javafx (Proxy :: Proxy EmptyCanvasApp)
+main = javafx (Proxy :: Proxy CanvasGridApp)
