@@ -2,7 +2,6 @@
 module CanvasGridApp where
 
 import Prelude hiding (show)
-import Control.Applicative
 import Control.Monad
 
 import Java
@@ -19,13 +18,14 @@ start primaryStage = do
   c <- newCanvas w h
   gc <- c <.> getGraphicsContext2D
 
-  forM [0..(n-1)] $ \i -> forM [0..(n-1)] $ \j -> gc <.> fillOval (u*i) (u*j) (u*r) (u*r)
+  forM_ [(i, j) | i <- [0..(n-1)], j <- [0..(n-1)]]
+        $ \(i, j) -> gc <.> fillOval (u*i) (u*j) (u*r) (u*r)
 
   s <- newGroup [superCast c] >>= newScene
   primaryStage <.> (setTitle "Eta-JavaFX CanvasGrid" >> setScene s >> show)
   where w = 320
         h = 320
-        n = 32
+        n = 8
         u = (min w h) / n
         r = 0.9
 
