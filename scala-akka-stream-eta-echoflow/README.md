@@ -3,7 +3,7 @@
 To compile the Eta code as a "fat-jar":
 
 ```
-cd scala-akka-stream-eta/src/main/eta
+cd scala-akka-stream-eta-echoflow/src/main/eta
 
 etlas clean
 etlas configure --enable-uberjar-mode
@@ -13,8 +13,8 @@ etlas build
 To run the example:
 
 ```
-cd scala-akka-stream-eta
+cd scala-akka-stream-eta-echoflow
 
-mv src/main/eta/dist/build/scala-akka-stream-eta/scala-akka-stream-eta.jar lib/
+mv src/main/eta/dist/build/scala-akka-stream-eta-echoflow/scala-akka-stream-eta-echoflow.jar lib/
 sbt run
 ```
