@@ -9,8 +9,8 @@ foreign import java unsafe "@static java.lang.System.nanoTime" nanoTimePlain :: 
 
 main :: IO ()
 main = do
-  java (nanoTimeJava) >>= print
-  java (nanoTimeJava) >>= print
+  java nanoTimeJava >>= print
+  java nanoTimeJava >>= print
   nanoTimeIO >>= print
   nanoTimeIO >>= print
   print nanoTimePlain
