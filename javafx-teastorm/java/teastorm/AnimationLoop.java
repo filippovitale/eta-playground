@@ -3,6 +3,7 @@ package teastorm;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 /** All credit goes to Mathieu 'p01' Henri – http://www.p01.org/tea_storm/ */
 public class AnimationLoop extends AnimationTimer {
@@ -29,9 +30,7 @@ public class AnimationLoop extends AnimationTimer {
         this.h = c.getHeight();
     }
 
-    private void clearCanvas() {
-        gc.clearRect(0, 0, w, h);
-    }
+    private void clearCanvas() { gc.clearRect(0, 0, w, h); }
 
     private static double computeIntensity(final double x, final double y, final double s, final double t) {
         double d = 4;
@@ -72,16 +71,10 @@ public class AnimationLoop extends AnimationTimer {
         for (int x = 0; x < n; x++) {
             for (int y = 0; y < n; y++) {
                 double i = computeIntensity(x, y, s, t);
-                gc.setGlobalAlpha(i); // draw with alpha
-                // gc.fillRect(x * u, y * u, m, m); // same size rect
-                // gc.fillRect(x * u, y * u, i * m, i * m);
+                gc.setGlobalAlpha(i);
                 gc.fillOval(x * u, y * u, i * m * 1.4, i * m * 1.4);
             }
         }
 
-    }
-
-    public static void main(String[] args) {
-        System.out.println(computeIntensity(15, 15, 64, 32));
     }
 }
