@@ -13,19 +13,19 @@ import Data.Aeson
 
 
 data {-# CLASS "stream.Example" #-} Example = Example (Object# Example)
+type JStringFlow = Flow JString JString NotUsed
 
-extractNameFlow :: Java Example (Flow JString JString NotUsed)
+extractNameFlow :: Java Example JStringFlow
 extractNameFlow = flowFromFunction $ applyFunction f
   where
     f js = return (toJava $ g $ pack (fromJava js :: [Char]))
     g s  = (fromMaybe empty (decode s :: Maybe (Map String String))) ! "name"
 
-wookieeFlow :: Java Example (Flow JString JString NotUsed)
+wookieeFlow :: Java Example JStringFlow
 wookieeFlow = flowFromFunction $ applyFunction f
   where
     f js = return (toJava $ (fromJava js :: [Char]) >>= wookiee)
 
-type JStringFlow = Flow JString JString NotUsed
 foreign export java extractNameFlow :: Java Example JStringFlow
 foreign export java wookieeFlow     :: Java Example JStringFlow
 

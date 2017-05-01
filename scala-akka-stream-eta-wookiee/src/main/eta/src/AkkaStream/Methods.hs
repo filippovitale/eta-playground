@@ -5,6 +5,7 @@ module AkkaStream.Methods where
 import Java
 import AkkaStream.Types
 
+-- trait Function[-T, +R] { def apply(param: T): R }
 foreign import java unsafe "@wrapper apply"
   applyFunction :: (t <: Object, r <: Object) => (t -> Java (Function t r) r) -> Function t r
 
